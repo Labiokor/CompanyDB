@@ -1,9 +1,21 @@
 {
-  "dependencies": {
-    "cors": "^2.8.5",
-    "express": "^5.1.0",
-    "mongodb": "^6.19.0",
-    "mongoose": "^8.18.1",
-    "node": "^24.8.0"
-  }
+    "scripts": {
+        "start": "nodemon index.js"
+    },
+    "prettier": {
+        "semi": true,
+        "singleQuote": true,
+        "tabWidth": 2,
+        "trailingComma": "es5"
+    },
+    "dependencies": {
+        "bcrypt": "^6.0.0",
+        "cors": "^2.8.5",
+        "eslint": "^9.36.0",
+        "express": "^5.1.0",
+        "mongodb": "^6.19.0",
+        "mongoose": "^8.18.1",
+        "node": "^24.8.0",
+        "nodeman": "^1.1.2"
+    }
 }
