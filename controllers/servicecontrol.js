@@ -1,10 +1,13 @@
 const Service = require('../models/service');
 
-exports.getServices = async (req, res, next) => {
+exports.getServiceById = async (req, res, next) => {
   try {
-    const services = await Service.find({ isDeleted: false });
-    res.json(services);
-  } catch (err) { next(err); }
+    const service = await Service.findOne({ where: {isDeleted: false }});
+     if (!service) return res.status(404).json({ message: 'Service not found' });
+    res.json(service);
+  } catch (err) {
+    next(err);
+  }
 };
 
 exports.addService = async (req, res, next) => {
@@ -16,14 +19,20 @@ exports.addService = async (req, res, next) => {
 
 exports.updateService = async (req, res, next) => {
   try {
-    const updated = await Service.findByIdAndUpdate(req.params.id, req.body, { new: true });
-    res.json(updated);
+    const service = await Service.findByPk(req.params.id);
+    if (!service) return res.status(404).json({ message: 'Service not found' });
+
+    await service.update(req.body);
+    res.json(service);
   } catch (err) { next(err); }
 };
 
 exports.hideService = async (req, res, next) => {
   try {
-    const hidden = await Service.findByIdAndUpdate(req.params.id, { isDeleted: true }, { new: true });
-    res.json(hidden);
+     const service = await Service.findByPk(req.params.id);
+    if (!service) return res.status(404).json({ message: 'Service not found' });
+
+    await service.update({ isDeleted: true });
+    res.json(service);
   } catch (err) { next(err); }
 };
