@@ -1,13 +1,22 @@
 require('dotenv').config({ path: 'config.env' });
 
 const express = require('express');
-const mongoose = require('mongoose');
+const sequelize = require('./connect');
 const cors = require('cors');
 const errorHandler = require('./errorhandler');
 
 const app = express();
 app.use(express.json());
 app.use(cors());
+
+//Models
+const User = require('./models/users');
+const service = require('./models/service');
+const product = require('./models/products');
+
+sequelize.sync()
+  .then(() => console.log('Database & tables created!'))
+  .catch(err => console.log('Error: ' + err));
 
 // Routes
 const authRoutes = require('./routes/authroutes');
@@ -17,6 +26,8 @@ const productRoutes = require('./routes/productroutes');
 app.use('/api/auth', authRoutes);
 app.use('/api/services', serviceRoutes);
 app.use('/api/products', productRoutes);
+
+
 
 // Error handler
 app.use(errorHandler);
@@ -28,15 +39,7 @@ app.get('/', (req, res) => {
 });
 
 
-// MongoDB Connection
-mongoose.connect(process.env.ATLAS_URI) .then(() => console.log('MongoDB connected'))
-  .catch(err => console.error('MongoDB error:', err.message));
-
-  mongoose.connection.on('error', err => {
-  console.error('MongoDB connection error:', err);
-});
-
 // Start server
 
-const PORT = process.env.PORT || 4000;
+const PORT = process.env.PORT || 4500;
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));

@@ -2,7 +2,7 @@ const dotenv = require('dotenv');
 dotenv.config();
 
 module.exports = {
-  mongoURI: process.env.ATLAS_URI,
+
   jwtSecret: process.env.JWT_SECRET,
-  port: process.env.PORT || 5000
+  port: process.env.PORT || 4500
 };
