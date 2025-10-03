@@ -13,6 +13,9 @@ app.use(cors());
 const User = require('./models/users');
 const service = require('./models/service');
 const product = require('./models/products');
+const tabs = require('./models/tabs');
+const pages = require('./models/pages');
+const blogs = require('./models/blogs');
 
 sequelize.sync()
   .then(() => console.log('Database & tables created!'))
@@ -22,10 +25,16 @@ sequelize.sync()
 const authRoutes = require('./routes/authroutes');
 const serviceRoutes = require('./routes/serviceroutes');
 const productRoutes = require('./routes/productroutes');
+const tabsRoutes = require('./routes/tabsroute');
+const pagesRoutes = require ('./routes/pagesroute') ;
+const blogsRoutes = require ('./routes/blogsroute') ;
 
 app.use('/api/auth', authRoutes);
 app.use('/api/services', serviceRoutes);
 app.use('/api/products', productRoutes);
+app.use('/api/tabs', tabsRoutes);
+app.use('/api/pages', pagesRoutes);
+app.use('/api/blogs', blogsRoutes);
 
 
 
