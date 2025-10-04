@@ -10,7 +10,6 @@ const User = sequelize.define('User' ,{
           validate: { isEmail: true }
   },
   password: { type: DataTypes.STRING, allowNull: false },
-  role: { type: DataTypes.ENUM('admin', 'user'), defaultValue: 'user' },
   isDeleted: { type: DataTypes.BOOLEAN, defaultValue: false }
 }, 
 { 

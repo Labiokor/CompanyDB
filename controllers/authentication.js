@@ -2,6 +2,7 @@
 const bcrypt = require('bcryptjs');
 const generateToken = require('../generateToken');
 const User = require('../models/users');
+const pass = require('../pass');
 
 
 exports.register = async (req, res, next) => {
@@ -10,12 +11,13 @@ exports.register = async (req, res, next) => {
     const userExists = await User.findOne({ where: {email} });
     if (userExists) return res.status(400).json({ message: 'User already exists' });
 
-    const user = await User.create({ name, email, password });
+    const harshedPassword = await bcrypt.hash(password, 10); 
+
+    const user = await User.create({ name, email, password: harshedPassword });
     res.status(201).json({
       _id: user.id,
       name: user.name,
       email: user.email,
-      token: generateToken(user._id)
     });
   } catch (err) {
      console.error(' Registration error:', err.message);
@@ -31,16 +33,19 @@ exports.login = async (req, res, next) => {
     const user = await User.findOne({ where: {email} });
      if (!user) return res.status(401).json({ message: 'Invalid credentials' });
 
-     
+   const token = generateToken(user.id);
+   res.status(200).json({ message: 'Login successful', token });
+
     const isMatch = await bcrypt.compare(password, user.password);
     if (!isMatch) return res.status(401).json({ message: 'Invalid credentials' });
 
-    // return user info + token
+    // return user info 
     res.json({
+      message: 'Login successful',
       id: user.id,
       name: user.name,
       email: user.email,
-      token: generateToken(user.id)
+      token
     });
   } catch (err) {
     next(err);
