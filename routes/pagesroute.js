@@ -1,5 +1,5 @@
 const express = require('express');
-const PagesController = require('../controllers/tabscontrol');
+const PagesController = require('../controllers/pagescontrol');
 const protect = require('../middleware/authmidware');
 const router = express.Router();
 
