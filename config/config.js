@@ -4,22 +4,12 @@ module.exports = {
   "development": {
     use_env_variable: "POST_URL",
     "dialect": "postgres",
-    dialectOptions: {
-       ssl: { 
-        require: true, 
-        rejectUnauthorized: false
-       } 
-      }
+    dialectOptions: {}
   },
   "test": {
     use_env_variable: "POST_URL",
     "dialect": "postgres",
-    dialectOptions: {
-       ssl: { 
-        require: true, 
-        rejectUnauthorized: false
-       } 
-      }
+    dialectOptions: {}
   },
   "production": {
     use_env_variable: "POST_URL",
