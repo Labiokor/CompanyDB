@@ -22,7 +22,8 @@ exports.getPageById = async (req, res, next) => {
 
 exports.addPage = async (req, res, next) => {
   try {
-    const pages = await Pages.create(req.body);
+    const {title, content} = req.body
+    const pages = await Pages.create({title, content});
     res.status(201).json(pages);
   } catch (err) { next(err); }
 };
