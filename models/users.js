@@ -13,7 +13,7 @@ const User = sequelize.define('User' ,{
   isDeleted: { type: DataTypes.BOOLEAN, defaultValue: false }
 }, 
 { 
-  tableName: 'Users',
+  tableName: 'users',
   timestamps: true,
   hooks: { 
     beforeCreate: async (user) => {
