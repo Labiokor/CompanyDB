@@ -16,9 +16,10 @@ module.exports = {
       description: {
         type: Sequelize.TEXT
       },
-      price: {
-        type: Sequelize.FLOAT,
-        allowNull: false
+      isDeleted: {
+        type: Sequelize.BOOLEAN,
+        allowNull: false,
+        defaultValue: false,
       },
       createdAt: {
         type: Sequelize.DATE,
