@@ -6,7 +6,6 @@ module.exports = {
       {
         name: 'Ecomerce website',
         description: 'A high-quality e-commerce website template suitable for online stores.',
-        price: '99.99',
         isDeleted: false,
         createdAt: new Date(),
         updatedAt: new Date()
@@ -14,7 +13,6 @@ module.exports = {
       {
         name: 'Mobile App',
         description: 'A sleek and modern mobile application template for iOS and Android platforms.',
-        price: '79.99',
         isDeleted: false,
         createdAt: new Date(),
         updatedAt: new Date()

@@ -6,14 +6,14 @@ module.exports = {
     {
       title: 'Web Development',
       description: 'Professional web development services using modern technologies.',
-      price: 1500.00,
+      isDeleted: false,
       createdAt: new Date(),
       updatedAt: new Date()
     },
     {
       title: 'Mobile App Development',
       description: 'High standard mobile app development services',
-      price: 800.00,
+      isDeleted: false,
       createdAt: new Date(),
       updatedAt: new Date()
     }
