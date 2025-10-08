@@ -9,6 +9,7 @@ const router = express.Router();
 
 
 router.get('/:id', getServiceById);
+router.get('/:id', getServiceById)
 router.post('/', protect, addService);
 router.put('/:id', protect, updateService);
 router.patch('/:id/hide', protect, hideService);
