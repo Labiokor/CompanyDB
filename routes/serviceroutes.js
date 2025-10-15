@@ -1,5 +1,6 @@
 const express = require('express');
-const { 
+const {
+    getServices, 
     getServiceById,
     addService, 
     updateService, 
@@ -8,7 +9,7 @@ const protect = require('../middleware/authmidware');
 const router = express.Router();
 
 
-router.get('/:id', getServiceById);
+router.get('/', getServices);
 router.get('/:id', getServiceById)
 router.post('/', protect, addService);
 router.put('/:id', protect, updateService);
