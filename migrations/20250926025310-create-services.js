@@ -3,33 +3,33 @@
 module.exports = {
   up: async (queryInterface, Sequelize) => {
     await queryInterface.createTable('services', {
-      id: {
+     id: {
         type: Sequelize.INTEGER,
         autoIncrement: true,
         primaryKey: true,
       },
 
       title: {
-        type: Sequelize.STRING,
-        allowNull: false,
+       type: Sequelize.STRING,
+       allowNull: false,
       },
       description: {
         type: Sequelize.TEXT,
       },
       isDeleted: {
-        type: Sequelize.BOOLEAN,
-        allowNull: false,
-        defaultValue: false,
+       type: Sequelize.BOOLEAN,
+       allowNull: false,
+       defaultValue: false,
       },
       createdAt: {
-        type: Sequelize.DATE,
-        allowNull: false,
-        defaultValue: Sequelize.literal('CURRENT_TIMESTAMP'),
+       type: Sequelize.DATE,
+       allowNull: false,
+       defaultValue: Sequelize.literal('CURRENT_TIMESTAMP'),
       },
       updatedAt: {
-        type: Sequelize.DATE,
-        allowNull: false,
-        defaultValue: Sequelize.literal('CURRENT_TIMESTAMP'),
+       type: Sequelize.DATE,
+       allowNull: false,
+       defaultValue: Sequelize.literal('CURRENT_TIMESTAMP'),
       },
     });
   },
