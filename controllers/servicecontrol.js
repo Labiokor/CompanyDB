@@ -1,5 +1,14 @@
 const Service = require('../models/service');
 
+exports.getServices = async (req, res, next) => {
+  try {
+    const services = await Service.findAll({ where: { isDeleted: false } });
+    res.json(services);
+  } catch (err) {
+    next(err);
+  }
+};
+
 exports.getServiceById = async (req, res, next) => {
   try {
     const service = await Service.findOne({ where: {isDeleted: false }});
