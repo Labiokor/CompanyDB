@@ -15,6 +15,10 @@ module.exports = {
       content: {
         type: Sequelize.TEXT,
       },
+      imageData: {
+        type: Sequelize.BLOB('long'),
+        allowNull: true,
+      },
       isDeleted: {
         type: Sequelize.BOOLEAN,
         allowNull: false,

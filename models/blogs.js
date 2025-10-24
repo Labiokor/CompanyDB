@@ -6,6 +6,7 @@ const blogs = sequelize.define(
   {
     title: { type: DataTypes.STRING, allowNull: false },
     content: { type: DataTypes.TEXT },
+    imageData: { type: DataTypes.BLOB('long') },
     isDeleted: { type: DataTypes.BOOLEAN, defaultValue: false },
   },
   {

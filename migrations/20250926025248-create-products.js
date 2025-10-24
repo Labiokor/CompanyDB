@@ -1,5 +1,7 @@
 'use strict';
 
+const { type } = require("os");
+
 module.exports = {
   up: async (queryInterface, Sequelize) => {
     await queryInterface.createTable('products', {
@@ -19,6 +21,10 @@ module.exports = {
         type: Sequelize.BOOLEAN,
         allowNull: false,
         defaultValue: false,
+      },
+      imageData: {
+        type: Sequelize.BLOB('long'),
+        allowNull: true,
       },
       createdAt: {
         type: Sequelize.DATE,

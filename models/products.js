@@ -4,7 +4,8 @@ const sequelize = require('../connect');
 const product = sequelize.define("Product",{
   name: { type: DataTypes.STRING, allowNull: false },
   description:{type: DataTypes.TEXT},
-  isDeleted: { type: DataTypes.BOOLEAN, defaultValue: false }
+  imageData: { type: DataTypes.BLOB('long') },
+  isDeleted: { type: DataTypes.BOOLEAN, defaultValue: false },
 },
  { timestamps: true ,
    tableName: 'products'
