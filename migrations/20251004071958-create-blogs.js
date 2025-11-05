@@ -15,6 +15,10 @@ module.exports = {
       content: {
         type: Sequelize.TEXT,
       },
+      category: {
+        type: Sequelize.STRING,
+        allowNull: true,
+      },
       imageData: {
         type: Sequelize.BLOB('long'),
         allowNull: true,

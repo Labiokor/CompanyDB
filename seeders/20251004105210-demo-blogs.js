@@ -12,6 +12,7 @@ module.exports = {
     {
       title: 'Lorem',
       content: 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Enim, est?',
+      category: 'Lorem',
       createdAt: new Date(),
       updatedAt: new Date()
     }
